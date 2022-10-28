@@ -5,48 +5,46 @@ class Inventario{
         this.ultimo = null; 
     }
 
-    agregar(producto)
+    agregar(producto, codigo)
     {
         if (this.primero === null)
         {
             this.primero = producto;
+            this.ultimo = producto; 
         }
         else{
             let temp = this.primero;
-            while (temp.next !== null)
-            { 
-                temp = temp.next;
 
-            }
-            temp.next = producto;
-        }
-    }
-
-    insertar(posicion, producto)
-    {
-       let pos = parseInt(posicion);
-        
-        if ( pos === 1)
-        {
-            producto.next = this.primero; 
-            this.primero = producto; 
-        }
-        else
-        {
-            let aux = this.primero;
-            let anterior;
-
-            for(let i = 0 ; i < pos-1; i++)
+            if(codigo < this.primero.codigo)
             {
-                anterior = aux; 
-                aux = aux.next;
+                producto.sig = this.primero; 
+                this.primero = producto; 
             }
-
-            anterior.next = producto; 
-            producto.next = aux; 
-        }  
+            else
+            {
+                while (temp !== null)
+                { 
+                    console.log(temp.codigo);
+                    if(temp.codigo < codigo && temp.sig === null)
+                    {
+                        this.ultimo.sig = producto; 
+                        producto.ant = this.ultimo; 
+                        this.ultimo = producto;
+                    }
+                    else if (temp.codigo < codigo && temp.sig.codigo > codigo)
+                    {
+                        producto.sig = temp.sig; 
+                        temp.sig.ant = producto; 
+                        temp.sig = producto; 
+                        producto.ant = temp; 
+                    }
+                    temp = temp.sig;
+                }
+            }
+            
+            
+        }
     }
-        
 
     buscar(codigo)
     {
@@ -93,7 +91,7 @@ class Inventario{
 
         while(temp !== null){
             listaProductos += temp.info();
-            temp = temp.next;
+            temp = temp.sig;
         }  
 
         return listaProductos; 
