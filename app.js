@@ -11,19 +11,6 @@ btnAgregar.addEventListener("click",()=>{
     document.getElementById("divDetalles").innerHTML += "<p> Se agrego el producto </p>"; 
 });
 
-const btnInsertar = document.getElementById("btnInsertar");
-btnInsertar.addEventListener("click",()=>{
-    let codigo = document.getElementById("txtCodigo").value; 
-    let nombre = document.getElementById("txtNombre").value; 
-    let cantidad = document.getElementById("txtCantidad").value; 
-    let costo = document.getElementById("txtCosto").value; 
-    let posicion = document.getElementById("txtPosicion").value; 
-    let producto = new Producto(codigo, nombre, cantidad, costo); 
-    inventario.insertar(posicion, producto);
-    document.getElementById("divDetalles").innerHTML += "<p> Se inserto el producto </p>"; 
-});
-
-
 const btnBuscar = document.getElementById("btnBuscar");
 btnBuscar.addEventListener("click",()=>{
     let codigo = document.getElementById("txtCodigo").value; 
