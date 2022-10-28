@@ -16,7 +16,7 @@ btnBuscar.addEventListener("click",()=>{
     let codigo = document.getElementById("txtCodigo").value; 
     let producto = inventario.buscar(codigo);
     if(producto === null)
-        document.getElementById("divDetalles").innerHTML = producto;
+        document.getElementById("divDetalles").innerHTML = "<p> Sin resultados </p>";
     else
         document.getElementById("divDetalles").innerHTML = producto.info();
      
