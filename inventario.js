@@ -24,7 +24,6 @@ class Inventario{
             {
                 while (temp !== null)
                 { 
-                    console.log(temp.codigo);
                     if(temp.codigo < codigo && temp.sig === null)
                     {
                         this.ultimo.sig = producto; 
@@ -56,7 +55,7 @@ class Inventario{
             {
                 return temp; 
             }
-            temp = temp.next;
+            temp = temp.sig;
         }
         return null; 
     }
@@ -65,20 +64,26 @@ class Inventario{
     {
         if (codigo === this.primero.codigo) 
         {
-            this.primero = this.primero.next; 
+            this.primero = this.primero.sig; 
         }
         else
         {
             let temp = this.primero; 
             while (temp !== null) 
             { 
-                if(temp.next !== null)
+                if(temp.sig !== null)
                 {
-                    if(temp.next.codigo === codigo)
-                        temp.next = temp.next.next; 
+                    if(temp.sig.codigo === codigo && temp.sig.sig === null)
+                    {
+                        temp.sig = null; 
+                    }
+                    else if(temp.sig.codigo === codigo)
+                    {
+                        temp.sig.sig.ant = temp; 
+                        temp.sig = temp.sig.sig; 
+                    } 
                 }
-                
-                temp = temp.next; 
+                temp = temp.sig; 
             }
         }
 
@@ -104,7 +109,7 @@ class Inventario{
 
         while(temp !== null){
             listaInverso =  temp.info() +" "+ listaInverso;
-            temp = temp.next;
+            temp = temp.sig;
         }  
 
         return listaInverso; 
