@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>     
+        <title>INVENTARIO CON VECTORES</title>    
+        <meta charset="UTF-8">
+        <meta name="title" content="INVENTARIO CON VECTORES">
+        <meta name="description" content="Realizar un inventario por medo de vectores">    
+        <script src="./inventario.js"></script> 
+        <script src="./producto.js"></script>   
+    </head> 
+
+    <body>
+
+        <header>
+            <h1><center>Inventario de productos</center></h1>      
+        </header>
+        
+        <section>      
+            <article>
+                <form name="form" id="form">
+                    
+                    <label for="codigo">Codigo:</label><br>
+                    <input type="number" id="txtCodigo">
+
+                    <br>
+
+                    <label for=" nombre">Nombre:</label><br>
+                    <input type="text" id="txtNombre">
+
+                    <br>
+
+                    <label for="">Cantidad:</label><br>
+                    <input type="number" id="txtCantidad">
+
+                    <br>
+
+                    <label for="">Costo:</label>
+                    <br><input type="number" id="txtCosto">
+
+                    <br>
+
+                    <label for="">Posicion:</label>
+                    <br><input type="number" id="txtPosicion">
+
+                    <br>
+
+                    <input type="button" id="btnAgregar" value="Agregar">
+                    <input type="button" id="btnInsertar" value="Insertar">
+                    <input type="button" id="btnBuscar" value="Buscar">
+                    <input type="button" id="btnEliminar" value="Eliminar">
+                    <input type="button" id="btnListar" value="Listar">
+                    <input type="button" id="btnListarInv" value="Listar Invertido">
+                    <input type="reset" id="btnCancelar" value="Cancelar">
+
+                </form>
+                <div id = "divDetalles">
+                    
+                </div>
+            </article>      
+        </section>
+        <script src = "./app.js"></script>
+    </body>  
+</html>
